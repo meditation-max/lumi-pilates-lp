@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumi Pilates｜体験レッスン予約</title>
+  <meta name="description" content="姿勢改善・ボディメイク・不調ケアを、あなたのペースで。初心者歓迎の完全予約制パーソナルピラティススタジオ。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #e98a9a;
+      --pink-soft: #f8d9df;
+      --pink-pale: #fff0f3;
+      --sage: #91a58b;
+      --sage-soft: #dbe6d8;
+      --lavender: #d6c8ea;
+      --lavender-soft: #f2edf9;
+      --beige: #f7eee5;
+      --cream: #fffaf5;
+      --white: #ffffff;
+      --ink: #2f3033;
+      --muted: #74777d;
+      --line: rgba(72, 67, 63, .12);
+      --shadow: 0 22px 55px rgba(154, 132, 121, .14);
+      --shadow-soft: 0 14px 36px rgba(154, 132, 121, .10);
+      --radius: 28px;
+      --container: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 3%, rgba(248, 217, 223, .9) 0 150px, transparent 151px),
+        radial-gradient(circle at 0% 32%, rgba(214, 200, 234, .28) 0 220px, transparent 221px),
+        linear-gradient(180deg, #fffefd 0%, #fff8f3 43%, #fff 100%);
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, textarea { font: inherit; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 14px;
+      z-index: 50;
+      width: min(calc(100% - 32px), 1160px);
+      margin: 14px auto 0;
+      padding: 14px 18px;
+      border: 1px solid rgba(255, 255, 255, .75);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .76);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 12px 35px rgba(117, 94, 83, .08);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #6f846a;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 35px;
+      height: 35px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .nav a:not(.nav-cta) {
+      color: rgba(47,48,51,.78);
+      transition: color .2s ease;
+    }
+    .nav a:not(.nav-cta):hover { color: var(--pink); }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 0 26px;
+      border: 0;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+    }
+
+    .nav-cta { min-height: 38px; padding: 0 22px; color: #fff; background: var(--pink); }
+    .btn-primary { color: #fff; background: linear-gradient(135deg, #e87f91, #efa2ae); box-shadow: 0 14px 30px rgba(233,138,154,.26); }
+    .btn-primary:hover, .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(233,138,154,.32); }
+    .btn-outline { color: #56585d; background: rgba(255,255,255,.72); border: 1px solid rgba(47,48,51,.22); }
+    .btn-outline:hover { transform: translateY(-2px); border-color: var(--pink); color: var(--pink); }
+    .btn-line { color: #fff; background: linear-gradient(135deg, #35b859, #68c87b); box-shadow: 0 14px 30px rgba(53,184,89,.20); }
+    .btn-line:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(53,184,89,.25); }
+
+    .hero {
+      position: relative;
+      padding: 82px 0 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      align-items: center;
+      gap: 54px;
+    }
+
+    .eyebrow {
+      color: var(--pink);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 25px;
+      font-style: italic;
+      line-height: 1;
+      letter-spacing: .04em;
+    }
+
+    .hero h1,
+    .section-title,
+    .cta h2 {
+      margin: 0;
+      font-family: "Shippori Mincho", serif;
+      font-weight: 600;
+      letter-spacing: .08em;
+      line-height: 1.55;
+    }
+
+    .hero h1 {
+      margin-top: 20px;
+      font-size: clamp(38px, 5vw, 60px);
+    }
+
+    .script {
+      margin: 8px 0 22px;
+      color: var(--pink);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 28px;
+      font-style: italic;
+      letter-spacing: .06em;
+    }
+
+    .lead {
+      max-width: 450px;
+      margin: 0 0 32px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+
+    .hero-media {
+      position: relative;
+      min-height: 590px;
+    }
+
+    .photo {
+      overflow: hidden;
+      position: absolute;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-main {
+      inset: 0 0 auto auto;
+      width: min(92%, 600px);
+      height: 520px;
+      border-radius: 46% 54% 48% 52% / 48% 42% 58% 52%;
+      background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1200&q=85');
+    }
+
+    .photo-sub {
+      left: 0;
+      bottom: 38px;
+      width: 245px;
+      height: 245px;
+      border: 10px solid rgba(255,255,255,.82);
+      border-radius: 43% 57% 56% 44% / 51% 45% 55% 49%;
+      background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?auto=format&fit=crop&w=700&q=85');
+      background-position: center 35%;
+    }
+
+    .blob {
+      position: absolute;
+      z-index: -1;
+      border-radius: 45% 55% 60% 40% / 50% 48% 52% 50%;
+      filter: blur(.1px);
+    }
+    .blob-pink { right: -80px; top: 18px; width: 250px; height: 250px; background: rgba(248,217,223,.75); }
+    .blob-sage { left: -100px; bottom: 10px; width: 180px; height: 180px; background: rgba(219,230,216,.8); }
+    .sparkle { position: absolute; color: var(--pink); font-size: 28px; opacity: .75; }
+    .sparkle.s1 { left: 46%; top: 12%; }
+    .sparkle.s2 { right: 10%; bottom: 18%; color: var(--lavender); }
+    .sparkle.s3 { left: 5%; bottom: 30%; color: var(--sage); }
+
+    .wave-divider {
+      width: 100%;
+      height: 90px;
+      margin-top: -52px;
+      background: linear-gradient(180deg, transparent, rgba(247,238,229,.75));
+      clip-path: ellipse(72% 70% at 50% 100%);
+    }
+
+    section { position: relative; padding: 86px 0; }
+    .section-head { text-align: center; margin-bottom: 38px; }
+    .section-title { font-size: clamp(28px, 3vw, 39px); }
+    .section-note { margin: 12px auto 0; max-width: 620px; color: var(--muted); }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid rgba(255,255,255,.86);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .service-card {
+      min-height: 244px;
+      padding: 30px 24px;
+      text-align: center;
+    }
+    .service-card:nth-child(2), .service-card:nth-child(4) { transform: translateY(16px); }
+
+    .icon-circle {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      font-size: 31px;
+      background: var(--pink-soft);
+    }
+    .service-card:nth-child(2) .icon-circle { background: var(--sage-soft); }
+    .service-card:nth-child(3) .icon-circle { background: var(--lavender-soft); }
+    .service-card:nth-child(4) .icon-circle { background: var(--beige); }
+
+    .card h3 { margin: 0 0 10px; font-size: 18px; letter-spacing: .06em; }
+    .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .results {
+      background:
+        radial-gradient(circle at 7% 30%, rgba(247,182,193,.22) 0 95px, transparent 96px),
+        radial-gradient(circle at 92% 80%, rgba(219,230,216,.45) 0 130px, transparent 131px);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.4fr;
+      align-items: center;
+      gap: 46px;
+    }
+
+    .stat-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .stat {
+      display: grid;
+      place-items: center;
+      width: 136px;
+      height: 136px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.78);
+      box-shadow: var(--shadow-soft);
+      text-align: center;
+    }
+    .stat strong { display: block; font-size: 34px; line-height: 1.05; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    .voice-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .voice-card { padding: 24px; }
+    .before-after { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; margin: 18px 0; }
+    .mini-photo {
+      height: 170px;
+      border-radius: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+    .mini-photo.before { background-image: url('https://images.unsplash.com/photo-1571019613914-85f342c6a11e?auto=format&fit=crop&w=500&q=80'); filter: saturate(.8); }
+    .mini-photo.after { background-image: url('https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=500&q=80'); }
+    .arrow-dot { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: var(--pink); background: var(--pink-pale); }
+
+    .pricing-wrap { position: relative; }
+    .campaign {
+      width: fit-content;
+      margin: -16px auto 28px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .campaign b { color: var(--pink); }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+    .price-card { position: relative; padding: 34px 28px 28px; text-align: center; }
+    .price-card.featured { border: 1px solid rgba(233,138,154,.55); background: linear-gradient(180deg, #fff, var(--pink-pale)); transform: translateY(-12px); }
+    .badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 5px 18px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--pink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .price { margin: 16px 0 18px; font-family: "Cormorant Garamond", serif; font-size: 52px; line-height: 1; }
+    .price small { font-family: "Noto Sans JP", sans-serif; font-size: 13px; color: var(--muted); }
+    .features { display: grid; gap: 9px; margin: 0 0 24px; padding: 22px 0 0; border-top: 1px dashed var(--line); list-style: none; text-align: left; color: #65686d; font-size: 14px; }
+    .features li::before { content: "✓"; margin-right: 9px; color: var(--sage); font-weight: 700; }
+
+    .faq-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 44px; }
+    .faq-list { display: grid; gap: 12px; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 8px 24px rgba(154,132,121,.07);
+      overflow: hidden;
+    }
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--sage); font-size: 24px; font-weight: 400; }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 0; padding: 0 22px 20px; color: var(--muted); font-size: 14px; }
+
+    .studio-photo {
+      min-height: 360px;
+      border-radius: 44% 56% 53% 47% / 48% 42% 58% 52%;
+      background: url('https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?auto=format&fit=crop&w=900&q=85') center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-section { padding-bottom: 110px; }
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr .85fr;
+      align-items: center;
+      gap: 38px;
+      padding: clamp(34px, 6vw, 70px);
+      border-radius: 46px;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(214,200,234,.72), transparent 190px),
+        radial-gradient(circle at 18% 90%, rgba(248,217,223,.82), transparent 210px),
+        linear-gradient(135deg, #fff, #fff5f7);
+      box-shadow: var(--shadow);
+    }
+    .cta h2 { font-size: clamp(32px, 4vw, 50px); }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: 14px; margin: 26px 0 22px; }
+    .benefits { display: flex; flex-wrap: wrap; gap: 10px; }
+    .benefit {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid var(--line);
+      color: #676a70;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .cta-photo {
+      min-height: 390px;
+      border-radius: 55% 45% 43% 57% / 45% 53% 47% 55%;
+      background: url('https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=900&q=85') center/cover;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .footer {
+      padding: 36px 0 44px;
+      border-top: 1px solid var(--line);
+      background: rgba(255,255,255,.6);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    .floating-dot { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: var(--pink-soft); }
+    .dot1 { top: 16%; left: 7%; }
+    .dot2 { top: 48%; right: 5%; background: var(--lavender); }
+    .dot3 { bottom: 12%; left: 13%; background: var(--sage-soft); }
+
+    @media (max-width: 900px) {
+      .nav { display: none; }
+      .hero { padding-top: 54px; }
+      .hero-grid, .results-grid, .faq-grid, .cta-box { grid-template-columns: 1fr; }
+      .hero-media { min-height: 470px; order: -1; }
+      .photo-main { width: 100%; height: 430px; }
+      .photo-sub { width: 170px; height: 170px; bottom: 0; }
+      .service-grid, .price-grid, .voice-grid { grid-template-columns: 1fr; }
+      .service-card:nth-child(2), .service-card:nth-child(4), .price-card.featured { transform: none; }
+      .stat-row { justify-content: center; }
+      .results-copy { text-align: center; }
+      section { padding: 66px 0; }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--container)); }
+      .site-header { top: 8px; width: calc(100% - 20px); padding: 10px 14px; }
+      .logo { font-size: 24px; }
+      .hero h1 { font-size: 34px; }
+      .hero-actions, .cta-actions { display: grid; }
+      .btn { width: 100%; }
+      .hero-media { min-height: 390px; }
+      .photo-main { height: 350px; }
+      .photo-sub { width: 135px; height: 135px; border-width: 6px; }
+      .stat { width: 112px; height: 112px; }
+      .stat strong { font-size: 28px; }
+      .price { font-size: 45px; }
+      .cta-box { padding: 30px 20px; border-radius: 32px; }
+      .cta-photo { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top" aria-label="Lumi Pilates ホーム">
+        <svg class="logo-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 39C24 28 22 17 16 8" stroke="#7f9878" stroke-width="2" stroke-linecap="round"/>
+          <path d="M21 21C13 18 10 13 9 8C16 9 20 13 21 21Z" fill="#dbe6d8" stroke="#7f9878"/>
+          <path d="M25 28C33 26 38 22 40 15C32 15 27 20 25 28Z" fill="#dbe6d8" stroke="#7f9878"/>
+          <circle cx="10" cy="29" r="2" fill="#e98a9a"/><circle cx="36" cy="9" r="2" fill="#e98a9a"/><circle cx="15" cy="36" r="1.6" fill="#e98a9a"/>
+        </svg>
+        Lumi Pilates
+      </a>
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a href="#service">サービス</a>
+        <a href="#results">実績</a>
+        <a href="#price">料金</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#reserve">予約</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <span class="floating-dot dot1"></span><span class="floating-dot dot2"></span><span class="floating-dot dot3"></span>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">for my best me.</div>
+          <h1>しなやかに整う、<br>わたしのための<br>パーソナルピラティス。</h1>
+          <p class="script">Balance your body.</p>
+          <p class="lead">姿勢改善・ボディメイク・不調ケアを、あなたのペースで。初心者歓迎の完全予約制スタジオ。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#reserve">体験レッスンを予約する <span>›</span></a>
+            <a class="btn btn-outline" href="#price">料金を見る <span>›</span></a>
+          </div>
+        </div>
+        <div class="hero-media" aria-hidden="true">
+          <div class="blob blob-pink"></div>
+          <div class="blob blob-sage"></div>
+          <span class="sparkle s1">✦</span><span class="sparkle s2">✧</span><span class="sparkle s3">✦</span>
+          <div class="photo photo-main"></div>
+          <div class="photo photo-sub"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider"></div>
+
+    <section id="service">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Service</div>
+          <h2 class="section-title">サービスの特徴</h2>
+          <p class="section-note">体のクセを見ながら、目的や生活リズムに合わせて無理なく続けられるレッスンをご提案します。</p>
+        </div>
+        <div class="service-grid">
+          <article class="card service-card"><div class="icon-circle">👤</div><h3>マンツーマン指導</h3><p>経験豊富なインストラクターが一人ひとりの体に合わせて丁寧にサポート。</p></article>
+          <article class="card service-card"><div class="icon-circle">🧘</div><h3>姿勢・骨格分析</h3><p>姿勢や骨格のクセをチェックし、根本改善に向けたアプローチを行います。</p></article>
+          <article class="card service-card"><div class="icon-circle">📋</div><h3>目的別プログラム</h3><p>ボディメイク・姿勢改善・不調ケアなど、目的に合わせて設計。</p></article>
+          <article class="card service-card"><div class="icon-circle">👜</div><h3>手ぶらOK</h3><p>ウェア・タオル・お水は無料レンタル。仕事帰りや予定前にも便利。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="results">
+      <div class="container results-grid">
+        <div class="results-copy">
+          <div class="eyebrow">Results</div>
+          <h2 class="section-title">選ばれる理由と<br>お客様の変化</h2>
+          <p class="section-note">小さな変化を積み重ねて、姿勢・呼吸・日常の軽さを整えていきます。</p>
+          <div class="stat-row" aria-label="実績数値">
+            <div class="stat"><div><span>体験満足度</span><strong>96%</strong></div></div>
+            <div class="stat"><div><span>継続率</span><strong>89%</strong></div></div>
+            <div class="stat"><div><span>累計レッスン</span><strong>3,000+</strong></div></div>
+          </div>
+        </div>
+        <div class="voice-grid">
+          <article class="card voice-card">
+            <h3>姿勢がきれいになった！</h3>
+            <p>20代・会社員</p>
+            <div class="before-after"><div class="mini-photo before"></div><div class="arrow-dot">›</div><div class="mini-photo after"></div></div>
+            <p>猫背と反り腰が気になっていましたが、3ヶ月で姿勢が整い、周りからも変化に気づかれました。</p>
+          </article>
+          <article class="card voice-card">
+            <h3>肩こりが楽になった！</h3>
+            <p>30代・デスクワーカー</p>
+            <div class="before-after"><div class="mini-photo before"></div><div class="arrow-dot">›</div><div class="mini-photo after"></div></div>
+            <p>長年の肩こりが改善し、仕事に集中できるように。呼吸も深くなり、眠りやすくなりました。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="container pricing-wrap">
+        <div class="section-head">
+          <div class="eyebrow">Price</div>
+          <h2 class="section-title">料金プラン</h2>
+        </div>
+        <div class="campaign">入会金 10,000円 → <b>今だけ 0円</b></div>
+        <div class="price-grid">
+          <article class="card price-card">
+            <h3>体験レッスン</h3>
+            <p>50分 / 1回</p>
+            <div class="price">¥3,500 <small>税込</small></div>
+            <ul class="features"><li>カウンセリング</li><li>姿勢・動作チェック</li><li>パーソナルレッスン</li></ul>
+            <a class="btn btn-outline" href="#reserve">このプランで予約</a>
+          </article>
+          <article class="card price-card featured">
+            <span class="badge">人気</span>
+            <h3>月2回プラン</h3>
+            <p>50分 / 月2回</p>
+            <div class="price">¥15,800 <small>税込</small></div>
+            <ul class="features"><li>1回あたり ¥7,900</li><li>LINEサポート付き</li><li>柔軟な予約変更OK</li></ul>
+            <a class="btn btn-primary" href="#reserve">このプランで予約</a>
+          </article>
+          <article class="card price-card">
+            <h3>月4回プラン</h3>
+            <p>50分 / 月4回</p>
+            <div class="price">¥29,800 <small>税込</small></div>
+            <ul class="features"><li>1回あたり ¥7,450</li><li>優先予約OK</li><li>食事・姿勢アドバイス付き</li></ul>
+            <a class="btn btn-outline" href="#reserve">このプランで予約</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container faq-grid">
+        <div>
+          <div class="eyebrow">FAQ</div>
+          <h2 class="section-title">よくあるご質問</h2>
+          <div class="faq-list" style="margin-top: 26px;">
+            <details open><summary>運動初心者でも大丈夫ですか？</summary><p>はい、大丈夫です。体力や目的に合わせて、無理のない範囲で丁寧にサポートします。</p></details>
+            <details><summary>持ち物は必要ですか？</summary><p>ウェア・タオル・お水のレンタルをご用意しています。手ぶらでお越しいただけます。</p></details>
+            <details><summary>どんな服装で行けばいいですか？</summary><p>動きやすい服装がおすすめです。体験時はレンタルウェアもご利用いただけます。</p></details>
+            <details><summary>無理な勧誘はありますか？</summary><p>ありません。体験後に合うプランをご提案しますが、ご検討だけでも大丈夫です。</p></details>
+          </div>
+        </div>
+        <div class="studio-photo" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="reserve" class="cta-section">
+      <div class="container cta-box">
+        <div class="cta">
+          <div class="eyebrow">Trial Lesson</div>
+          <h2>まずは気軽に、<br>体験レッスンから。</h2>
+          <p class="lead">あなたに合ったレッスンをご提案します。LINEまたはフォームから簡単予約。</p>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="mailto:info@example.com?subject=Lumi Pilates 体験レッスン予約">体験レッスンを申し込む <span>›</span></a>
+            <a class="btn btn-line" href="#">LINEで無料相談する</a>
+          </div>
+          <div class="benefits">
+            <span class="benefit">📅 24時間WEB予約OK</span>
+            <span class="benefit">🌿 初心者さん歓迎</span>
+            <span class="benefit">♡ 勧誘なし</span>
+          </div>
+        </div>
+        <div class="cta-photo" aria-hidden="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© Lumi Pilates</span>
+      <span>完全予約制パーソナルピラティススタジオ</span>
+    </div>
+  </footer>
+</body>
+</html>
